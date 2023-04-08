@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Formulaire de contact</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../scrollBarStyle.css" />
+  </head>
+  <body>
+    <div class="boxForm">
+      <h1>
+        Nous contactez
+        <span class="logoTitre">
+          <img src="../img/img_for_contact/logoPlane.svg"/>
+        </span>
+      </h1>
+      <form>
+        <label for="email" class="labelEmail">Entrez votre Email</label>
+        <input
+          type="emal"
+          name="email"
+          id="email"
+          class="emailInp"
+          required
+          maxlength="50"
+          placeholder="Entrez votre email"
+        />
+
+        <div class="flex2Inputs">
+          <div class="flexLeftInp">
+            <label for="prenom" class="labelFlex">Entez votre prénom</label>
+            <input
+              type="text"
+              name="prenom"
+              id="prenom"
+              required
+              maxlength="35"
+              class="flexInp"
+              placeholder="Entez votre prénom"
+            />
+          </div>
+
+          <div class="flexRightInp">
+            <label for="nom" class="labelFlex">Entez votre nom</label>
+            <input
+              type="text"
+              name="nom"
+              id="nom"
+              required
+              maxlength="35"
+              class="flexInp"
+              placeholder="Entez votre nom"
+            />
+          </div>
+        </div>
+
+        <label for="inpSelect" class="labelSelect"
+          >Sélectionne ta catégorie</label
+        >
+        <select name="select" id="inpSelect">
+          <option value="">Select...</option>
+          <option value="1">Probleme technique</option>
+          <option value="2">Retour sur le zoo</option>
+          <option value="3">Autre ...</option>
+        </select>
+
+        <label for="txtArea" class="labelTxt">Dite nous quelque chose ...</label>
+        <textarea name="txt" id="txtArea" cols="50" rows="10"></textarea>
+        <button>Envoyez</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+body {
+    background-image: url(../img/img_for_contact/img_de_fond_contact.jpg);
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+  
+.boxForm {
+    margin-top: 30px;
+    padding: 50px;
+    width: 700px;
+    height: 740px;
+    background: #3333335a;
+    border-radius: 20px;
+}
+h1 {
+    margin-top: 0;
+    font-size: 50px;
+    text-align: center;
+    color: #f1f1f1;
+}
+h1 span img {
+    width: 50px;
+    position: relative;
+    top: 10px;
+}
+  
+.emailInp,
+  select,
+  textarea {
+    display: block;
+    margin: 20px auto;
+    outline: 0;
+    background: #f1f1f1;
+    width: 95%;
+    border: 0;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    border-radius: 3px;
+}
+  
+.labelEmail,
+.labelSelect,
+.labelTxt {
+    color: white;
+    display: block;
+    margin: 0 auto;
+    width: 95%;
+    position: relative;
+    top: 7px;
+}
+  
+.flex2Inputs {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: 0 auto;
+}
+.flexInp {
+    margin: 20px auto;
+    outline: 0;
+    background: #f1f1f1;
+    width: 90%;
+    border: 0;
+    padding: 15px;
+    font-size: 14px;
+    border-radius: 3px;
+}
+.flexLeftInp,
+.flexRightInp {
+    flex-basis: 45%;
+}
+.labelFlex {
+    color: white;
+    position: relative;
+    top: 8px;
+}
+button {
+    width: 45%;
+    display: block;
+    margin: 45px auto 0 auto;
+    outline: none;
+    border: 0;
+    height: 50px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 17px;
+    
+}
+button:hover {
+    background: lightgreen;
+}
+body::-webkit-scrollbar {
+    background-color: #5e737e;
+    border-radius: 99px;
+}
+  
+body::-webkit-scrollbar-button {
+    display: none;
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(15, 68, 68, 0.733);
+    border-radius: 99px;
+}
+@media only screen and (max-height: 834px){
+    .boxForm{
+        margin-top: -20px;
+        
+    }
+}
+@media only screen and (max-width: 783px){
+    form{
+        margin-top: -50px;
+    }
+    textarea{
+        height: 50px;
+    }
+    
+}
+@media only screen and (max-height: 790px){
+    .boxForm {
+        margin-top: -9px;
+    }
+    h1 {
+        margin-top: -53px;
+    }
+}
+@media only screen and (max-height: 743px){
+    h1{
+        font-size: 40px;
+    }
+    .labelEmail{
+        margin-top: -10px;
+    }
+    textarea{
+        height: 150px;
+    }
+
+}
+@media only screen and (max-height: 672px){
+    button{
+       margin-top: 10px;
+    }
+    textarea{
+        height: 100px;
+    }
+}
+@media only screen and (max-height: 600px){
+    input{
+        height: 5px;
+    }
+    select{
+        height: 45px;
+    }
+    h1{
+        font-size: 20px;
+    }
+}

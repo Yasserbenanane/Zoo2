@@ -1,0 +1,252 @@
+@font-face {
+  font-family: "Righteous";
+  src: url(font/Righteous-Regular.ttf);
+}
+@font-face {
+  font-family: "Roboto";
+  src: url(font/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: "Nunito-bold";
+  src: url(font/Nunito-Bold.ttf);
+}
+@font-face {
+  font-family: "Nunito";
+  src: url(font/Nunito-Regular.ttf);
+}
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url(img/img_de_fond/Zoo.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+      0deg,
+      rgba(22, 21, 21, 0.2),
+      rgba(22, 21, 21, 0.2)
+    ),
+    rgba(217, 217, 217, 0.3);
+  border: 6px solid #005427;
+  box-shadow: inset 10px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 74px;
+  width: 570px;
+  height: auto;
+  margin-top: 90px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+h1 {
+  color: #d99946;
+  font-size: 70px;
+  text-shadow: 5px 5px yellow;
+  margin-top: 20px;
+  font-family: "Nunito-bold";
+}
+h2 {
+  font-family: "Nunito-bold";
+  margin-top: 40px;
+  color: #97140d;
+}
+.input_top {
+  display: grid;
+  grid-template-columns: 0fr 4fr;
+  align-items: center;
+  justify-items: start;
+  justify-content: center;
+  margin-top: 160px;
+}
+.input_login {
+  width: 70px;
+  height: 80px;
+  margin-bottom: 60px;
+}
+.login {
+  height: 80px;
+  width: auto;
+  margin-bottom: 60px;
+  border-radius: 2px 40px 40px 2px;
+  border: none;
+  padding-left: 10px;
+  font-size: 25px;
+}
+.input_bottom {
+  display: grid;
+  grid-template-columns: 0fr 4fr;
+  align-items: center;
+  justify-items: start;
+  justify-content: center;
+  margin-top: 30px;
+}
+.input_password {
+  width: 70px;
+  height: 80px;
+}
+.password {
+  height: 80px;
+  width: auto;
+  border-radius: 2px 40px 40px 2px;
+  border: none;
+  padding-left: 10px;
+  font-size: 25px;
+}
+input:focus-visible {
+  border: 1px solid orange !important;
+}
+input::placeholder {
+  color: gray;
+  text-align: left;
+  font-size: 25px;
+  margin-left: 30px;
+  font-family: "Nunito-bold";
+}
+button {
+  margin-top: 60px;
+  height: 80px;
+  width: 300px;
+  font-size: 50px;
+  border-radius: 20px;
+  background-color: #ff9412;
+  color: white;
+  border: none;
+  font-family: "Nunito-bold";
+  transition: 0.2s;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #af7e00;
+  scale: 1.1;
+}
+p {
+  text-align: center;
+  font-size: 27px;
+  color: white;
+  margin-top: 30px;
+  font-family: "Nunito-bold";
+}
+.sign_up {
+  font-size: 27px;
+  color: #ffb905;
+  text-decoration: none;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  font-family: "Nunito-bold";
+}
+.sign_up:hover {
+  color: rgb(180, 138, 0);
+}
+@media only screen and (max-width: 1200px) {
+  button {
+    margin-top: 70px;
+  }
+  .input_top {
+    margin-top: 60px;
+  }
+  .input_bottom {
+    margin-top: 10px;
+  }
+  main {
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .login,
+  .password {
+    width: 245px;
+  }
+  .input_top,
+  .input_bottom {
+    margin-left: 34px;
+  }
+}
+@media only screen and (max-height: 1200px) {
+  .input_top {
+    margin-top: 38px;
+  }
+  main {
+    margin-top: 50px;
+  }
+}
+@media only screen and (max-height: 766px){
+  main{
+    margin-top: 30px;
+  }
+
+}
+@media only screen and (max-height: 717px){
+  main{
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+}
+@media only screen and (max-height: 688px){
+  main{
+    margin-top: -13px;
+  }
+}
+@media only screen and (max-height: 659px){
+  main{
+      margin-top: -20px;
+      background: none;
+      border: none;
+      box-shadow: none;
+  }
+
+}
+@media only screen and (max-height: 624px){
+  button{
+    margin-top: 25px;
+  }
+
+}
+@media only screen and (max-height: 613px){
+  main{
+      margin-top: -30px;
+      background: none;
+      border: none;
+      box-shadow: none;
+  }
+  .input_password{
+    margin-top: -60px;
+  }
+  .password{
+    margin-top: -60px;
+  }
+  button{
+    margin-top: 30px;
+  }
+  .input_login{
+    margin-top: -30px;
+  }
+  .login{
+    margin-top: -30px;
+  }
+  h1{
+    margin-top: 30px;
+  }
+}
