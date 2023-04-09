@@ -36,6 +36,7 @@ if(!isset($_SESSION['searchRace'])){
                     <th>Alimentation</th>
                     <th>Durée de vie</th>
                     <th>Aquatique</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>

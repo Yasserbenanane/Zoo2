@@ -166,6 +166,7 @@
                                 <th>Commentaire</th>
                                 <th>Id espaces</th>
                                 <th>Sexe</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -216,6 +217,7 @@
                                 <th>Alimentation</th>
                                 <th>Durée de vie</th>
                                 <th>Aquatique</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>

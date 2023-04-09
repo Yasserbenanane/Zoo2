@@ -1,399 +1,397 @@
 @font-face {
-    font-family: "Righteous";
-    src: url(font/Righteous-Regular.ttf);
-  }
-  @font-face {
-    font-family: "Roboto";
-    src: url(font/Roboto-Regular.ttf);
-  }
-  @font-face {
-    font-family: "Nunito-bold";
-    src: url(../font/Nunito-Bold.ttf);
-  }
-  @font-face {
-    font-family: "Nunito";
-    src: url(font/Nunito-Regular.ttf);
-  }
-  *,
-  ::before,
-  ::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+  font-family: "Righteous";
+  src: url(font/Righteous-Regular.ttf);
+}
+@font-face {
+  font-family: "Roboto";
+  src: url(font/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: "Nunito-bold";
+  src: url(../font/Nunito-Bold.ttf);
+}
+@font-face {
+  font-family: "Nunito";
+  src: url(font/Nunito-Regular.ttf);
+}
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  background-color: #f1f1f1;
+  font-family: "Nunito-bold";
+  overflow: hidden;
+}
+main {
+  display: grid;
+  grid-template-columns: 350px 4fr;
+  height: 100%;
+}
+form {
+  height: 0px;
+}
+
+.employé {
+  width: 250px;
+  height: 500px;
+  margin-top: 100px;
+}
+.logo {
+  width: 90px;
+  height: 90px;
+  margin-top: 90px;
+  border-radius: 9px;
+  margin-right: 10px;
+}
+.exit {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+}
+h2 {
+  color: #ffa500;
+  font-family: "Nunito-bold";
+  font-size: 35px;
+}
+.titel {
+  margin-top: 25px;
+}
+#part_left {
+  background-color: #ad7a3d;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+h1 {
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin-top: 40px;
+  font-size: 50px;
+}
+#part_right {
+  background-image: url(../img/img_for_inscription/pp_for_employe.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-position: center;
+}
+#menuFonction {
+  width: 350px;
+  height: 60px;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 17px;
+  margin-top: 80px;
+  font-family: "Nunito-bold";
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.603);
+}
+.name,
+.prenom {
+  width: 222px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 8px;
+  margin: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.603);
+}
+.prenom {
+  margin-left: 30px;
+}
+#gender {
+  width: 190px;
+  height: 50px;
+  border-radius: 7px;
+  text-align: center;
+  font-size: 17px;
+  margin-top: 40px;
+  font-family: "Nunito-bold";
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.603);
+}
+.login {
+  width: 500px;
+  height: 50px;
+  border-radius: 7px;
+  font-size: 20px;
+  margin-top: 90px;
+}
+.password {
+  width: 500px;
+  height: 50px;
+  border-radius: 7px;
+  font-size: 20px;
+}
+p {
+  font-size: 20px;
+  font-family: "Nunito-bold";
+  align-self: flex-start;
+  color: white;
+}
+.password_securise {
+  border: 2px solid gainsboro;
+  width: 500px;
+  height: 15px;
+}
+button {
+  width: 470px;
+  height: 70px;
+  border-radius: 20px;
+  background-color: #ff9412;
+  color: white;
+  font-family: "Nunito-bold";
+  font-size: 45px;
+  margin-top: 5px;
+  border: none;
+}
+
+.input {
+  margin-top: 40px;
+}
+.part_bottom {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+input {
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+}
+input::placeholder {
+  color: #6b5d5d;
+  font-size: 25px;
+  font-family: "Nunito-bold";
+}
+button:hover {
+  background-color: #af7e00;
+  scale: 1.1;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.patronbg {
+  background-image: url(../img/img_for_inscription/img_de_fond_patron.jpg) !important;
+}
+
+.patron {
+  background-color: #8c7c69 !important;
+}
+
+.password_securise {
+  display: none;
+  background-color: rgb(232, 240, 254);
+  height: auto;
+  margin: 10px 0;
+  padding: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  opacity: 0.8;
+}
+.password_securise p {
+  color: black;
+  margin: 10px 15px;
+}
+.password_securise li {
+  list-style: "❌";
+  margin-left: 30px;
+}
+
+#save {
+  margin-top: 25px;
+}
+
+.checked {
+  list-style: "✔️" !important;
+}
+
+.show {
+  display: block !important;
+}
+
+@media only screen and (max-height: 900px) {
   body {
-    width: 100vw;
+    overflow-y: scroll;
+  }
+  #part_right {
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    background-color: #f1f1f1;
-    font-family: "Nunito-bold";
-    overflow: hidden;
+  }
+  #menuFonction {
+    margin-top: 30px;
+  }
+  .logo {
+    margin-top: 60px;
+  }
+  #leftSideImage {
+    margin-top: 40px;
+  }
+}
+
+@media only screen and (max-height: 837px) {
+  .logo {
+    margin-top: 30px;
+  }
+}
+@media only screen and (max-height: 838px) {
+  .logo {
+    margin-top: 10px;
+  }
+  #leftSideImage {
+    margin-top: 13px;
+  }
+}
+@media only screen and (max-height: 771px) {
+  .login {
+    margin-top: 50px;
+  }
+}
+@media only screen and (max-height: 751px) {
+  h2 {
+    font-size: 25px;
+  }
+  #leftSideImage {
+    height: 450px;
+    width: 200px;
+  }
+}
+@media only screen and (max-height: 751px) {
+  h1 {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-height: 687px) {
+  #menuFonction {
+    height: 40px;
+  }
+  .name {
+    height: 40px;
+  }
+  .prenom {
+    height: 40px;
+  }
+  #gender {
+    height: 40px;
+  }
+  .login {
+    height: 40px;
+  }
+  .password {
+    height: 40px;
+  }
+  #save {
+    height: 50px;
+    font-size: 30px;
+  }
+  .logo {
+    height: 70px;
+    width: 70px;
+  }
+  .exit {
+    height: 60px;
+    width: 60px;
+  }
+}
+@media only screen and (max-height: 751px) {
+  #leftSideImage {
+    height: 350px;
+    width: 200px;
+  }
+}
+@media only screen and (max-height: 607px) {
+  #gender {
+    margin-top: 20px;
+  }
+  .input {
+    margin-top: 10px;
+  }
+}
+@media only screen and (max-height: 563px) {
+  #menuFonction {
+    margin-top: 10px;
+  }
+  .login {
+    margin-top: 10px;
+  }
+  #gender {
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+}
+@media only screen and (max-height: 563px) {
+  .logo {
+    width: 50px;
+    height: 60px;
+  }
+  .exit {
+    height: 45px;
+    width: 45px;
+  }
+  #leftSideImage {
+    height: 300px;
+    width: 170px;
+  }
+}
+@media only screen and (max-width: 899px) {
+  #part_left {
+    display: none;
   }
   main {
     display: grid;
-    grid-template-columns: 350px 4fr;
-    height: 100%;
-  }
-  form {
-    height: 0px;
-  }
-  
-  .employé {
-    width: 250px;
-    height: 500px;
-    margin-top: 100px;
-  }
-  .logo {
-    width: 90px;
-    height: 90px;
-    margin-top: 90px;
-    border-radius: 9px;
-    margin-right: 10px;
-  }
-  .exit {
-    width: 80px;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-  }
-  h2 {
-    color: #ffa500;
-    font-family: "Nunito-bold";
-    font-size: 35px;
-  }
-  .titel {
-    margin-top: 25px;
-  }
-  #part_left {
-    background-color: #ad7a3d;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  h1 {
-    display: flex;
-    justify-content: center;
-    color: white;
-    margin-top: 40px;
-    font-size: 50px;
+    grid-template-columns: 1fr;
   }
   #part_right {
-    background-image: url(../img/img_for_inscription/pp_for_employe.jpg);
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    background-position: center;
+    margin: 0px 0px 0px 0px;
+    height: 120vh;
   }
-  #menuFonction {
-    width: 350px;
-    height: 60px;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 17px;
-    margin-top: 80px;
-    font-family: "Nunito-bold";
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.603);
-  }
-  .name,
-  .prenom {
-    width: 222px;
-    height: 50px;
-    font-size: 20px;
-    border-radius: 8px;
-    margin: 20px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.603);
-  }
-  .prenom {
-    margin-left: 30px;
-  }
-  #gender {
-    width: 190px;
-    height: 50px;
-    border-radius: 7px;
-    text-align: center;
-    font-size: 17px;
-    margin-top: 40px;
-    font-family: "Nunito-bold";
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.603);
-  }
+}
+@media only screen and (max-width: 543px) {
   .login {
-    width: 500px;
-    height: 50px;
-    border-radius: 7px;
-    font-size: 20px;
-    margin-top: 90px;
+    width: 400px;
   }
   .password {
-    width: 500px;
-    height: 50px;
-    border-radius: 7px;
-    font-size: 20px;
+    width: 400px;
   }
-  p {
-    font-size: 20px;
-    font-family: "Nunito-bold";
-    align-self: flex-start;
-    color: white;
+}
+@media only screen and (max-width: 513px) {
+  .name,
+  .prenom {
+    margin-left: 138px;
   }
-  .password_securise {
-    border: 2px solid gainsboro;
-    width: 500px;
-    height: 15px;
-  }
-  button {
-    width: 470px;
-    height: 70px;
-    border-radius: 20px;
-    background-color: #ff9412;
-    color: white;
-    font-family: "Nunito-bold";
-    font-size: 45px;
-    margin-top: 5px;
-    border: none;
-  }
-  
-  .input {
-    margin-top: 40px;
-  }
-  .part_bottom {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+}
+@media only screen and (max-width: 539px) {
+  .name,
+  .prenom {
+    margin: auto;
   }
   input {
-    border: none;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding: 10px;
+    margin: auto;
   }
-  input::placeholder {
-    color: #6b5d5d;
-    font-size: 25px;
-    font-family: "Nunito-bold";
+  .login {
+    margin-bottom: 30px;
   }
-  button:hover {
-    background-color: #af7e00;
-    scale: 1.1;
+}
+
+@media only screen and (max-width: 501px) {
+  .password {
+    height: 45px;
   }
-  select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-  }
-  
-  .patronbg {
-    background-image: url(../img/img_for_inscription/img_de_fond_patron.jpg) !important;
-  }
-  
-  .patron {
-    background-color: #8c7c69 !important;
-  }
-  
-  .password_securise {
-    display: none;
-    background-color: rgb(232, 240, 254);
-    height: auto;
-    margin: 10px 0;
-    padding: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    opacity: 0.8;
-  }
-  .password_securise p {
-    color: black;
-    margin: 10px 15px;
-  }
-  .password_securise li {
-    list-style: "❌";
-    margin-left: 30px;
-  }
-  
-  #save {
-    margin-top: 25px;
-  }
-  
-  .checked {
-    list-style: "✔️" !important;
-  }
-  
-  .show {
-    display: block !important;
-  }
-  
-  @media only screen and (max-height: 900px) {
-    body {
-      overflow-y: scroll;
-    }
-    #part_right {
-      height: 100vh;
-    }
-    #menuFonction {
-      margin-top: 30px;
-    }
-    .logo {
-      margin-top: 60px;
-    }
-    #leftSideImage {
-      margin-top: 40px;
-    }
-  }
-  
-  @media only screen and (max-height: 837px) {
-    .logo {
-      margin-top: 30px;
-    }
-  }
-  @media only screen and (max-height: 838px) {
-    .logo {
-      margin-top: 10px;
-    }
-    #leftSideImage {
-      margin-top: 13px;
-    }
-  }
-  @media only screen and (max-height: 771px) {
-    .login {
-      margin-top: 50px;
-    }
-  }
-  @media only screen and (max-height: 751px) {
-    h2 {
-      font-size: 25px;
-    }
-    #leftSideImage {
-      height: 450px;
-      width: 200px;
-    }
-  }
-  @media only screen and (max-height: 751px) {
-    h1 {
-      font-size: 20px;
-    }
-  }
-  @media only screen and (max-height: 687px) {
-    #menuFonction {
-      height: 40px;
-    }
-    .name {
-      height: 40px;
-    }
-    .prenom {
-      height: 40px;
-    }
-    #gender {
-      height: 40px;
-    }
-    .login {
-      height: 40px;
-    }
-    .password {
-      height: 40px;
-    }
-    #save {
-      height: 50px;
-      font-size: 30px;
-    }
-    .logo {
-      height: 70px;
-      width: 70px;
-    }
-    .exit {
-      height: 60px;
-      width: 60px;
-    }
-  }
-  @media only screen and (max-height: 751px) {
-    #leftSideImage {
-      height: 350px;
-      width: 200px;
-    }
-  }
-  @media only screen and (max-height: 607px) {
-    #gender {
-      margin-top: 20px;
-    }
-    .input {
-      margin-top: 10px;
-    }
-  }
-  @media only screen and (max-height: 563px) {
-    #menuFonction {
-      margin-top: 10px;
-    }
-    .login {
-      margin-top: 10px;
-    }
-    #gender {
-      margin-top: 0px;
-      margin-bottom: 10px;
-    }
-  }
-  @media only screen and (max-height: 563px) {
-    .logo {
-      width: 50px;
-      height: 60px;
-    }
-    .exit {
-      height: 45px;
-      width: 45px;
-    }
-    #leftSideImage {
-      height: 300px;
-      width: 170px;
-    }
-  }
-  @media only screen and (max-width: 899px) {
-    #part_left {
-      display: none;
-    }
-    main {
-      display: grid;
-      grid-template-columns: 1fr;
-    }
-    #part_right {
-      margin: 0px 0px 0px 0px;
-      height: 120vh;
-    }
-  }
-  @media only screen and (max-width: 543px) {
-    .login {
-      width: 400px;
-    }
-    .password {
-      width: 400px;
-      margin-left: 50px;
-    }
-  }
-  @media only screen and (max-width: 513px) {
-    .name,
-    .prenom {
-      margin-left: 138px;
-    }
-  }
-  @media only screen and (max-width: 539px) {
-    .name,
-    .prenom {
-      margin: auto;
-    }
-    input {
-      margin: auto;
-    }
-    .login {
-      margin-bottom: 30px;
-    }
-  }
-  
-  @media only screen and (max-width: 501px) {
-    .password {
-      height: 45px;
-    }
-  }
-  
+}

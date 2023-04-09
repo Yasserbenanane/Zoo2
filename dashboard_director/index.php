@@ -161,6 +161,7 @@
                                 <th>Password</th>
                                 <th>Salarie</th>
                                 <th>Sexe</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -209,6 +210,7 @@
                                 <th>Password</th>
                                 <th>Salarie</th>
                                 <th>Sexe</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>

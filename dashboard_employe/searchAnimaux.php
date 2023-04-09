@@ -37,6 +37,7 @@ if(!isset($_SESSION['OPENEDSearch'])){
                     <th>Commentaire</th>
                     <th>Id especes</th>
                     <th>Sexe</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
