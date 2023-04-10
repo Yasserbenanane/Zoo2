@@ -294,7 +294,7 @@
                 <div class="grid-item commentContainer">
                     <div>
                         <h3 class="salaire">Salarie :</h3>
-                        <input type="number" name="salary" class="inputTwo in" required>
+                        <input type="number" name="salary" class="inputTwo in" min="0" max="99999.99" required>
                     </div>
                 </div>
                 <div class="button">

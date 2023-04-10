@@ -27,6 +27,9 @@ body {
   overflow-x: hidden;
   background-color: #f1f1f1;
 }
+button {
+  cursor: pointer;
+}
 input,
 select {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -318,7 +321,6 @@ th {
 td {
   text-align: center;
   height: 10px;
-  line-height: 2px;
 }
 td button,
 td img {

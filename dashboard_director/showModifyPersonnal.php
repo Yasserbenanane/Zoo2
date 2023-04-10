@@ -53,7 +53,7 @@ else{
                     <div class="grid-item commentContainer">
                         <div>
                             <h3 class="salary">Salarie :</h3>
-                            <input type="text" name="salary" class="inputTwo in" value="<?php echo $row["salaire"];?>">
+                            <input type="number" name="salary" class="inputTwo in" min="0" max="99999.99" value="<?php echo $row["salaire"];?>">
                         </div>
                     </div>
                     <div class="button">
