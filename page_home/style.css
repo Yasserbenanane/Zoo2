@@ -122,6 +122,7 @@ button:hover{
 }
 .right{
     transform: rotateY(180deg);
+    margin-left: auto;
     
 }
 .partCenter{
@@ -425,15 +426,10 @@ body .activeBtn a{
     display: flex!important;
     justify-content: center!important;
     align-items: center!important;
+    text-decoration: none;
 }
 
 @media only screen and (max-width: 2089px){
-    .right{
-        margin-left: 225px;
-    }
-    .left{
-
-    }
     button{
         font-size: 20px;
         width: auto;
@@ -441,16 +437,10 @@ body .activeBtn a{
         padding-right: 30px;
     }
 }
-@media only screen and (max-widht: 2018px){
-    
-}
 @media only screen and (max-width: 2021px){
     header{
         display: grid;
         grid-template-columns: 1fr 443px 10fr;  
-    }
-    .right{
-        margin-left: 254px;
     }
 }
 @media only screen and (max-width: 1497px){
@@ -503,6 +493,9 @@ body .activeBtn a{
     }
     .imgLion{
         margin-left: 264px;
+    }
+    .branche{
+        display: none;
     }
 }
 @media only screen and (max-width: 808px){

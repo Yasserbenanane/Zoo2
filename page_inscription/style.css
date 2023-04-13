@@ -72,6 +72,7 @@ h2 {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  height: 120vh;
 }
 h1 {
   display: flex;
@@ -89,7 +90,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: 120vh;  
   background-position: center;
 }
 #menuFonction {
@@ -231,9 +232,6 @@ select {
 @media only screen and (max-height: 900px) {
   body {
     overflow-y: scroll;
-  }
-  #part_right {
-    height: 100vh;
   }
   #menuFonction {
     margin-top: 30px;

@@ -16,6 +16,17 @@
     <title>Document</title>
 </head>
 <body>
+    <?php
+
+    if(isset($_GET['FailedAdd'])){
+        echo '<script defer>
+
+        alert("Erreur : Login déja existant.")
+
+
+        </script>';
+    }
+    ?>
     <main>
         <div id="part_left">
             <h2 class="titel">Zoo</h2>

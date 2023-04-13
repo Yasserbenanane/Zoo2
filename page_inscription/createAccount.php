@@ -18,26 +18,33 @@
     $password = $_POST['password'];
     $fonction = $_POST['fonction'];
 
-    if($login != "" or $password != ""){
-        echo $login;
-	    echo $password;
-    }
-    else{
-        header("location:index.php");
+    $DBCheckPersonnalLogin = "SELECT * FROM `personnels` WHERE `login` = '$login'";
+
+    $DBQueryCheckPersonnalLogin = mysqli_query($DBlink, $DBCheckPersonnalLogin);
+
+    $num_rows = mysqli_num_rows($DBQueryCheckPersonnalLogin);
+
+    echo $num_rows;
+
+    if($num_rows == 0){
+        $DBAddLogin = "INSERT INTO `personnels` (`nom`, `prenom`, `sexe`, `login`, `password`, `fonction`) VALUES ('$firstName', '$lastName', '$sexe', '$login', '$password', '$fonction');";
+    
+        $DBQueryAddLogin = mysqli_query($DBlink, $DBAddLogin);
+    
+        if($DBQueryAddLogin){
+            echo "<h1> Compte crée </h1>";
+            header("location:../index.php");
+        }
+        else{
+            echo $DBAddLogin;
+            echo "<h1> Error </h1>";
+        }
+    }else{
+        header("location:index.php?FailedAdd=true");
     }
     
-    $DBAddLogin = "INSERT INTO `personnels` (`nom`, `prenom`, `sexe`, `login`, `password`, `fonction`) VALUES ('$firstName', '$lastName', '$sexe', '$login', '$password', '$fonction');";
-
-    $DBQueryAddLogin = mysqli_query($DBlink, $DBAddLogin);
-
-    if($DBQueryAddLogin){
-        echo "<h1> Compte crée </h1>";
-        header("location:../index.php");
-    }
-    else{
-        echo $DBAddLogin;
-        echo "<h1> Error </h1>";
-    }
     ?>
+
+    
 </body>
 </html>

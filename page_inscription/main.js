@@ -82,3 +82,27 @@ passwordInput.addEventListener("input", (e) => {
     spaceCondition.classList.remove("checked");
   }
 });
+
+const saveBtn = document.getElementById('save')
+
+saveBtn.addEventListener('click', (e) => {
+  let checked = document.querySelectorAll('.password_securise li')
+  isCheck = 0;
+  for (let i = 0; i < checked.length; i++) {
+    if(checked[i].classList.contains('checked')){
+      isCheck++
+    }
+    console.log(checked[i].classList.contains('checked'));
+  }
+  console.log(checked.length);
+  console.log(isCheck);
+  if(checked.length != isCheck){
+    console.log("I is");
+    e.preventDefault()
+  }else{
+    console.log("sortir");
+  }
+
+
+})
+
