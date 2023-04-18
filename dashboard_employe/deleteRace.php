@@ -4,14 +4,16 @@ include '../bdd.php';
 
 $id = $_POST['id'];
 
-$DBDeleteRace = "DELETE FROM `especes` WHERE id = $id";
+$query = "DELETE FROM `especes` WHERE id = :id";
+
+$stmt = $pdo->prepare($query);
+$stmt->bindParam(':id', $id);
+$stmt->execute();
+
+echo $query;
 
 
-echo $DBDeleteRace;
-
-$DBRemoveRace = mysqli_query($DBlink, $DBDeleteRace);
-
-if($DBRemoveRace){
+if($stmt){
     header("location:index.php");
 }
 else{

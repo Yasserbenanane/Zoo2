@@ -122,9 +122,11 @@
                 <p class="number">
                 <?php 
 
-                $DBCountRace = "SELECT COUNT( * ) AS 'NbnRace' FROM especes";
-                $DBQueryCountRace = mysqli_query($DBlink, $DBCountRace);
-                while($row = mysqli_fetch_assoc($DBQueryCountRace)){
+                $query = "SELECT COUNT( * ) AS 'NbnRace' FROM especes";
+                $stmt = $pdo->prepare($query);
+                $stmt->execute();
+
+                while($row = $stmt->fetch()){
                     echo $row['NbnRace'];
                 }
 
@@ -141,9 +143,12 @@
                 <p class="number"> 
                     <?php 
 
-                    $DBCountAnimaux = "SELECT COUNT( * ) AS 'NbnAnimaux' FROM animaux";
-                    $DBQueryCountAnimaux = mysqli_query($DBlink, $DBCountAnimaux);
-                    while($row = mysqli_fetch_assoc($DBQueryCountAnimaux)){
+                    $query = "SELECT COUNT( * ) AS 'NbnAnimaux' FROM animaux";
+
+                    $stmt = $pdo->prepare($query);
+                    $stmt->execute();
+
+                    while($row = $stmt->fetch()){
                         echo $row['NbnAnimaux'];
                     }
                     
@@ -173,11 +178,12 @@
 
                         <?php
 
-                            $DBShowAnimaux = 'SELECT * FROM `animaux`';
+                            $query = 'SELECT * FROM `animaux`';
 
-                            $DBQueryAnimaux = mysqli_query($DBlink, $DBShowAnimaux);
+                            $stmt = $pdo->prepare($query);
+                            $stmt->execute();
 
-                            while($row = mysqli_fetch_assoc($DBQueryAnimaux))
+                            while($row = $stmt->fetch())
                             {
                                 ?>
 
@@ -223,11 +229,13 @@
                         <tbody>
                             <?php 
 
-                            $DBShowRace = 'SELECT * FROM `especes`';
+                            $query = 'SELECT * FROM `especes`';
 
-                            $DBQueryRace = mysqli_query($DBlink, $DBShowRace);
+                            $stmt = $pdo->prepare($query);
+                            $stmt->execute();
+                            
 
-                            while($row = mysqli_fetch_assoc($DBQueryRace))
+                            while($row = $stmt->fetch())
                             {
                                 ?>
                                     <tr>

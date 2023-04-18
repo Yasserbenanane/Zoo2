@@ -5,16 +5,26 @@ include 'bdd.php';
 $login = $_POST['login'];
 $password = $_POST['password'];
 
-$BDSearchLoginPassword = "SELECT * FROM `personnels` WHERE login = '$login' AND password = '$password'";
-$DBQueryIdPersonnal = mysqli_query($DBlink, $BDSearchLoginPassword);
+$query = "SELECT * FROM `personnels` WHERE login = :login AND password = :password";
 
-$result = (string)mysqli_affected_rows($DBlink);
+$stmt = $pdo->prepare($query);
+$stmt->bindParam(':login', $login);
+$stmt->bindParam(':password', $password);
+$stmt->execute();
 
 
-if($result == "1"){
-    $BDSearchFonction = "SELECT `fonction` FROM `personnels` WHERE login = '$login' AND password = '$password'";
-    $DBQueryFonction = mysqli_query($DBlink, $BDSearchFonction);
-    while($row = mysqli_fetch_assoc($DBQueryFonction)){
+$result = $stmt->rowCount();
+
+
+if($result == 1){
+    $query = "SELECT `fonction` FROM `personnels` WHERE login = :login AND password = :password";
+
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':login', $login);
+    $stmt->bindParam(':password', $password);
+    $stmt->execute();
+
+    while($row = $stmt->fetch()){
         $_SESSION['fonction'] = $row["fonction"];
     }
     $_SESSION['login'] = $login;

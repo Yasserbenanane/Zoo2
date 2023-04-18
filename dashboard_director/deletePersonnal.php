@@ -4,14 +4,15 @@ include '../bdd.php';
 
 $id = $_POST['id'];
 
-$DBDeletePersonnal = "DELETE FROM `personnels` WHERE id = $id";
+$query = "DELETE FROM `personnels` WHERE id = :id";
 
+$stmt = $pdo->prepare($query);
+$stmt->bindParam(':id', $id);
+$stmt->execute();
 
-echo $DBDeletePersonnal;
+echo $query;
 
-$DBRemovePersonnal = mysqli_query($DBlink, $DBDeletePersonnal);
-
-if($DBRemovePersonnal){
+if($stmt){
     header("location:index.php");
 }
 else{

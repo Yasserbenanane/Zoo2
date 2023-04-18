@@ -11,21 +11,36 @@
     $salary = $_POST['salary'];
     $fonction = $_POST['fonction'];
 
-    $DBCheckPersonnalLogin = "SELECT * FROM `personnels` WHERE `login` = '$login'";
+    $query = "SELECT * FROM `personnels` WHERE `login` = :login";
 
-    $DBQueryCheckPersonnalLogin = mysqli_query($DBlink, $DBCheckPersonnalLogin);
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':login', $login);
+    $stmt->execute();
 
-    $num_rows = mysqli_num_rows($DBQueryCheckPersonnalLogin);
+    $num_rows = $stmt->rowCount();
 
     echo $num_rows;
 
     if($num_rows == 0){
 
-        $DBAddLogin = "INSERT INTO `personnels` (`nom`, `Prenom`, `date_de_naissance`, `login`, `password`, `salaire`, `sexe`, `fonction`) VALUES ('$firstName', '$lastName', '$birthdate', '$login', '$password', $salary, '$sexe', '$fonction');";
+        $query = "INSERT INTO `personnels` (`nom`, `prenom`, `date_de_naissance`, `login`, `password`, `salaire`, `sexe`, `fonction`) VALUES (:firstName, :lastName, :birthdate, :login, :password, :salary, :sexe, :fonction )";
+
+        echo $query;
+        echo $lastName;
     
-        $DBQueryAddLogin = mysqli_query($DBlink, $DBAddLogin);
-    
-        if($DBQueryAddLogin){
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':firstName', $firstName);
+        $stmt->bindParam(':lastName', $lastName);
+        $stmt->bindParam(':birthdate', $birthdate);
+        $stmt->bindParam(':login', $login);
+        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':salary', $salary);
+        $stmt->bindParam(':sexe', $sexe);
+        $stmt->bindParam(':fonction', $fonction);
+        $stmt->execute();
+
+
+        if($stmt){
             header("location:index.php");
         }
 

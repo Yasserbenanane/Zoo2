@@ -115,9 +115,12 @@
 
                     <?php
 
-                        $DBCountDirector = "SELECT COUNT( * ) AS 'NbnDirector' FROM `personnels` WHERE `fonction` = 'Directeur'";
-                        $DBQueryCountDirector = mysqli_query($DBlink, $DBCountDirector);
-                        while($row = mysqli_fetch_assoc($DBQueryCountDirector)){
+                        $query = "SELECT COUNT( * ) AS 'NbnDirector' FROM `personnels` WHERE `fonction` = 'Directeur'";
+
+                        $stmt = $pdo->prepare($query);
+                        $stmt->execute();
+
+                        while($row = $stmt->fetch()){
                             echo $row['NbnDirector'];
                         }
 
@@ -134,9 +137,12 @@
                 <p class="number">
                     <?php
 
-                        $DBCountEmployee = "SELECT COUNT( * ) AS 'NbnEmployee' FROM `personnels` WHERE `fonction` = 'Employé'";
-                        $DBQueryCountEmployee = mysqli_query($DBlink, $DBCountEmployee);
-                        while($row = mysqli_fetch_assoc($DBQueryCountEmployee)){
+                        $query = "SELECT COUNT( * ) AS 'NbnEmployee' FROM `personnels` WHERE `fonction` = 'Employé'";
+
+                        $stmt = $pdo->prepare($query);
+                        $stmt->execute();
+
+                        while($row = $stmt->fetch()){
                             echo $row['NbnEmployee'];
                         }
 
@@ -167,11 +173,12 @@
                         <tbody>
                         <?php
 
-                            $DBShowEmployee = "SELECT * FROM `personnels` WHERE `fonction` = 'Employé'";
+                            $query = "SELECT * FROM `personnels` WHERE `fonction` = 'Employé'";
 
-                            $DBQueryEmployee = mysqli_query($DBlink, $DBShowEmployee);
+                            $stmt = $pdo->prepare($query);
+                            $stmt->execute();
 
-                            while($row = mysqli_fetch_assoc($DBQueryEmployee))
+                            while($row = $stmt->fetch())
                             {
                                 ?>
 
@@ -216,11 +223,12 @@
                         <tbody>
                             <?php 
 
-                            $DBShowDirector = "SELECT * FROM `personnels` WHERE `fonction` = 'Directeur'";
+                            $query = "SELECT * FROM `personnels` WHERE `fonction` = 'Directeur'";
 
-                            $DBQueryDirector = mysqli_query($DBlink, $DBShowDirector);
+                            $stmt = $pdo->prepare($query);
+                            $stmt->execute();
 
-                            while($row = mysqli_fetch_assoc($DBQueryDirector))
+                            while($row = $stmt->fetch())
                             {
                                 ?>
                                     <tr>

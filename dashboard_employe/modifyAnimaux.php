@@ -13,21 +13,31 @@
     $gender = $_POST['gender'];
 
 
-    $DBCheckAnimauxName = "SELECT * FROM `animaux` WHERE `nom_animal` = '$nameAnimal' AND `id` != '$idAnimal'";
+    $query = "SELECT * FROM `animaux` WHERE `nom_animal` = :nameAnimal AND `id` != :id";
 
-    $DBQueryCheckAnimauxName = mysqli_query($DBlink, $DBCheckAnimauxName);
-
-    $num_rows = mysqli_num_rows($DBQueryCheckAnimauxName);
-
-    echo $num_rows;
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':nameAnimal', $nameAnimal);
+    $stmt->bindParam(':id', $idAnimal);
+    $stmt->execute();
+    
+    $num_rows = $stmt->rowCount();
 
     if($num_rows == 0){
-        $DBAddRace = "UPDATE `animaux` SET `nom_animal` = '$nameAnimal', `date_de_naissance` = '$birthdate', `commentaire` = '$comment', `id_Especes` = '$race', `sexe` = '$gender' WHERE `animaux`.`id` = $idAnimal;";
+        $query = "UPDATE `animaux` SET `nom_animal` = :nameAnimal, `date_de_naissance` = :birthdate, `commentaire` = :comment, `id_Especes` = :race, `sexe` = :gender WHERE `animaux`.`id` = :id";
     
-        echo $DBAddRace;
-        $DBQueryAddRace = mysqli_query($DBlink, $DBAddRace);
+        echo $query;
+
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':nameAnimal', $nameAnimal);
+        $stmt->bindParam(':birthdate', $birthdate);
+        $stmt->bindParam(':comment', $comment);
+        $stmt->bindParam(':race', $race);
+        $stmt->bindParam(':gender', $gender);
+        $stmt->bindParam(':id', $idAnimal);
+        $stmt->execute();
     
-        if($DBQueryAddRace){
+    
+        if($stmt){
             header("location:index.php");
         }
     }else{

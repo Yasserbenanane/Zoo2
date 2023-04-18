@@ -18,20 +18,29 @@
     $comment = $_POST['comment'];
 
 
-    $DBCheckAnimauxName = "SELECT * FROM `animaux` WHERE `nom_animal` = '$animalName' ";
+    $query = "SELECT * FROM `animaux` WHERE `nom_animal` = :animalName ";
 
-    $DBQueryCheckAnimauxName = mysqli_query($DBlink, $DBCheckAnimauxName);
+   
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':animalName', $animalName);
+    $stmt->execute();
 
-    $num_rows = mysqli_num_rows($DBQueryCheckAnimauxName);
+    $num_rows = $stmt->rowCount();
 
     echo $num_rows;
 
     if($num_rows == 0){
-        $DBAddAnimaux = "INSERT INTO `animaux` (`nom_animal`, `id_Especes`, `date_de_naissance`, `sexe`, `commentaire`) VALUES ('$animalName', '$race', '$birthdate', '$sexe', '$comment');";
+        $query = "INSERT INTO `animaux` (`nom_animal`, `id_Especes`, `date_de_naissance`, `sexe`, `commentaire`) VALUES (:animalName, :race, :birthdate, :sexe, :comment);";
     
-        $DBQueryAddAnimaux = mysqli_query($DBlink, $DBAddAnimaux);
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':animalName', $animalName);
+        $stmt->bindParam(':race', $race);
+        $stmt->bindParam(':birthdate', $birthdate);
+        $stmt->bindParam(':sexe', $sexe);
+        $stmt->bindParam(':comment', $comment);
+        $stmt->execute();
     
-        if($DBQueryAddAnimaux){
+        if($stmt){
             header("location:index.php");
         }
     }else{

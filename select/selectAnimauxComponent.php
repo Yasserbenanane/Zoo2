@@ -6,13 +6,14 @@ if(!function_exists('selectedAnimaux') ){
 
         include '../bdd.php';
 
-        $DBSearchRace = 'SELECT * FROM `animaux`';
-        
-        $DBQueryRace = mysqli_query($DBlink, $DBSearchRace);
+        $query = 'SELECT * FROM `animaux`';
+
+        $stmt = $pdo->prepare($query);
+        $stmt->execute();
         
         echo '<select name="choixAnimaux" id="selectAnimal" class="choixId">';
         
-        while($row = mysqli_fetch_assoc($DBQueryRace)){
+        while($row = $stmt->fetch()){
             if($selectedAnimaux == $row["id"]){
                 echo '<option value="' . $row["id"] . '" selected>' . $row["nom_animal"] . '</option>';
             }

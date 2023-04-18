@@ -18,12 +18,13 @@ if(!function_exists('selectedGender') ){
 
         include '../bdd.php';
     
-        $DBSearchSexe = 'SELECT * FROM sexe';
+        $query = 'SELECT * FROM sexe';
 
-        $DBQuerySexe = mysqli_query($DBlink, $DBSearchSexe);
-        
+        $stmt = $pdo->prepare($query);
+        $stmt->execute();
+
         echo '<select name="gender" id="gender" autocomplete="off">';
-        while($row = mysqli_fetch_assoc($DBQuerySexe)){
+        while($row = $stmt->fetch()){
             if($row["sexe"] == $selectedGender){
                 echo '<option value="' . $row["sexe"] . '" data-gender="selected" selected>' . $row["sexe"] . '</option>';
             }

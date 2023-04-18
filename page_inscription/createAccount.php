@@ -18,25 +18,35 @@
     $password = $_POST['password'];
     $fonction = $_POST['fonction'];
 
-    $DBCheckPersonnalLogin = "SELECT * FROM `personnels` WHERE `login` = '$login'";
+    $query = "SELECT * FROM `personnels` WHERE `login` = :login";
 
-    $DBQueryCheckPersonnalLogin = mysqli_query($DBlink, $DBCheckPersonnalLogin);
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':login', $login);
+    $stmt->execute();
 
-    $num_rows = mysqli_num_rows($DBQueryCheckPersonnalLogin);
+    $num_rows = $stmt->rowCount();
 
     echo $num_rows;
 
     if($num_rows == 0){
-        $DBAddLogin = "INSERT INTO `personnels` (`nom`, `prenom`, `sexe`, `login`, `password`, `fonction`) VALUES ('$firstName', '$lastName', '$sexe', '$login', '$password', '$fonction');";
+        $query = "INSERT INTO `personnels` (`nom`, `prenom`, `sexe`, `login`, `password`, `fonction`) VALUES (:nom, :prenom, :sexe, :login, :password, :fonction);";
     
-        $DBQueryAddLogin = mysqli_query($DBlink, $DBAddLogin);
+        
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':nom', $firstName);
+        $stmt->bindParam(':prenom', $lastName);
+        $stmt->bindParam(':sexe', $sexe);
+        $stmt->bindParam(':login', $login);
+        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':fonction', $fonction);
+        $stmt->execute();
     
-        if($DBQueryAddLogin){
+        if($stmt){
             echo "<h1> Compte crée </h1>";
             header("location:../index.php");
         }
         else{
-            echo $DBAddLogin;
+            echo $query;
             echo "<h1> Error </h1>";
         }
     }else{

@@ -6,12 +6,13 @@ if(!function_exists('selectedFoodType') ){
 
         include '../bdd.php';
 
-        $DBSearchRace = 'SELECT * FROM `type_nourritures`';
+        $query = 'SELECT * FROM `type_nourritures`';
         
-        $DBQueryRace = mysqli_query($DBlink, $DBSearchRace);
+        $stmt = $pdo->prepare($query);
+        $stmt->execute();
         
         echo '<select name="foodType" id="foodType">';
-        while($row = mysqli_fetch_assoc($DBQueryRace)){
+        while($row = $stmt->fetch()){
             if($selectedFoodType == $row["type_nourriture"]){
                 echo '<option value="' . $row["type_nourriture"] . '" selected>' . $row["type_nourriture"] . '</option>';
             }

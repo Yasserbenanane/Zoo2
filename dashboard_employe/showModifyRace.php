@@ -20,11 +20,13 @@ else{
 
     $id = $_SESSION['IdRace'];
 
-    $DBSELECTRace = "SELECT * FROM `especes` WHERE id='$id' ";
+    $query = "SELECT * FROM `especes` WHERE id=:id ";
 
-    $DBQuerySELECTRace = mysqli_query($DBlink, $DBSELECTRace);
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
 
-    while($row = mysqli_fetch_assoc($DBQuerySELECTRace)){
+    while($row = $stmt->fetch()){
 
         ?>
 

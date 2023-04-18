@@ -5,12 +5,13 @@ if(!function_exists('selectedFonction') ){
 
         include '../bdd.php';
 
-        $DBSearchPersonnal = 'SELECT * FROM `personnels`';
+        $query = 'SELECT * FROM `personnels`';
         
-        $DBQueryPersonnal = mysqli_query($DBlink, $DBSearchPersonnal);
+        $stmt = $pdo->prepare($query);
+        $stmt->execute();
         
         echo '<select name="personnalId" class="selectPersonnal choixId">';
-        while($row = mysqli_fetch_assoc($DBQueryPersonnal)){
+        while($row = $stmt->fetch()){
             if($selectedPersonnal == $row["id"]){
                 echo '<option value="' . $row["id"] . '" selected>' . $row["login"] . '</option>';
             }

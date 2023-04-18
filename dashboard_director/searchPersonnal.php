@@ -18,10 +18,12 @@ if(!isset($_SESSION['OPENEDSearch'])){
 }else{
     $search = $_SESSION['searchPersonnal'];
 
-    $DBSearchPersonnal = "SELECT * FROM `personnels` WHERE id LIKE '%$search%' OR `nom` LIKE '%$search%' OR `date_de_naissance` LIKE '%$search%' OR `prenom` LIKE '%$search%' OR `login` LIKE '%$search%' OR `password` LIKE '%$search%' OR `salaire` LIKE '%$search%' OR `sexe` LIKE '%$search%' OR `fonction` LIKE '%$search%'";
+    $query = "SELECT * FROM `personnels` WHERE id LIKE :search OR `nom` LIKE :search OR `date_de_naissance` LIKE :search OR `prenom` LIKE :search OR `login` LIKE :search OR `password` LIKE :search OR `salaire` LIKE :search OR `sexe` LIKE :search OR `fonction` LIKE :search";
 
 
-    $DBQuerySELECTRace = mysqli_query($DBlink, $DBSearchPersonnal);
+    $stmt = $pdo->prepare($query);
+    $stmt->bindValue(':search', "%$search%");
+    $stmt->execute();
 
 ?>
 
@@ -44,7 +46,7 @@ if(!isset($_SESSION['OPENEDSearch'])){
                         </thead>
             <tbody>
                 <?php 
-                while($row = mysqli_fetch_assoc($DBQuerySELECTRace)){
+                while($row = $stmt->fetch()){
 
                 ?>
                     <tr>

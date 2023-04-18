@@ -17,21 +17,30 @@
     $aquatic = $_POST['aquatic'];
 
 
-    $DBCheckRaceName = "SELECT * FROM `especes` WHERE `nom_race` = '$nameRace' ";
+    $query = "SELECT * FROM `especes` WHERE `nom_race` = :nameRace ";
 
-    $DBQueryCheckRaceName = mysqli_query($DBlink, $DBCheckRaceName);
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':nameRace', $nameRace);
+    $stmt->execute();
 
-    $num_rows = mysqli_num_rows($DBQueryCheckRaceName);
+    $num_rows = $stmt->rowCount();
 
     echo $num_rows;
 
     if($num_rows == 0){
-        $DBAddRace = "INSERT INTO `especes` (`nom_race`, `duree_vie_moyenne`, `aquatique`, `type_nourriture`) VALUES ('$nameRace', '$lifeTime', '$aquatic', '$foodType');";
+        $query = "INSERT INTO `especes` (`nom_race`, `duree_vie_moyenne`, `aquatique`, `type_nourriture`) VALUES (:nameRace, :lifeTime, :aquatic, :foodType)";
     
-        echo $DBAddRace;
-        $DBQueryAddRace = mysqli_query($DBlink, $DBAddRace);
+        echo $query;
+
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':nameRace', $nameRace);
+        $stmt->bindParam(':lifeTime', $lifeTime);
+        $stmt->bindParam(':aquatic', $aquatic);
+        $stmt->bindParam(':foodType', $foodType);
+        $stmt->execute();
+        
     
-        if($DBQueryAddRace){
+        if($stmt){
             header("location:index.php");
         }
     }

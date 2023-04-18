@@ -18,11 +18,13 @@ else{
 
     $id = $_SESSION['personnalId'];
 
-    $DBSELECTPersonnal = "SELECT * FROM `personnels` WHERE id='$id' ";
+    $query = "SELECT * FROM `personnels` WHERE id=:id ";
 
-    $DBQuerySELECTPersonnal = mysqli_query($DBlink, $DBSELECTPersonnal);
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
 
-    while($row = mysqli_fetch_assoc($DBQuerySELECTPersonnal)){
+    while($row = $stmt->fetch()){
 
         ?>
 
